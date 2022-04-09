@@ -14,45 +14,31 @@ struct ContentView: View {
     var body: some View {
         VStack {
             
-            Text("hello world")
-                .fontWeight(.medium)
-            SecureField("enter password", text: $password)
-                .padding()
+            Image("BingWallpaper-2").resizable()
+                .aspectRatio(contentMode: .fit)
             
-            Text("pass word enterd:\(password)")
-                .italic()
             
-            TextField("enter some text", text: $someText)
+            Image("BingWallpaper-3").resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width:300, height: 200)
+                .clipShape(Circle())
+                .overlay(Circle().stroke(Color.blue, lineWidth: 6))
+                .shadow(radius: 10)
             
-            Text(":\(someText)")
-                .font(.largeTitle)
-                .underline()
-            Text("Changing text color and maker it bold")
-                .foregroundColor( Color.blue)
-                .bold()
-            
-            Text("Use kerning to change space between lines of text")
-                .kerning(7)
-            
-            Text("Changing baseline offset").baselineOffset(100)
-            
-            Text("Striekthroth").strikethrough()
-            
-            Text("This is a multiline text implemented in swiftui ,the trailing modifier was added to text . this text also implements multiple modifiers")
-                .background(Color.yellow)
-                .multilineTextAlignment(.trailing)
-                .lineSpacing(10)
-            
-            // test count item
-            
-//            Text("count 1")
-//            Text("count 1")
-//            Text("count 1")
-            
-        
+            Image(uiImage: getImageFromUIImage(image: "BingWallpaper-4"))
                 
+                .resizable()
+                .frame(width: 200, height: 200)
+                .aspectRatio(contentMode: .fit)
             
         }
+    }
+    
+    func getImageFromUIImage(image: String) -> UIImage {
+        guard let img = UIImage(named: image) else {
+            fatalError("Unable to load image")
+        }
+        return img
     }
 }
 
