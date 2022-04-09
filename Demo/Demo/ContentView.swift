@@ -8,38 +8,51 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var password = "1234"
+    @State var someText = "inital text"
+    
     var body: some View {
         VStack {
-            Text("vstack item 1")
-            Spacer()
-            Text("vstack item 2")
-            Divider()
-                .background(Color.black)
-            Text("vstack item 3")
-            HStack {
-                Text("Item 1")
-              
-                Text("item 2")
             
-                Text("h stack item 3")
-            }.background(Color.red)
-                .frame(
-                    maxWidth: .infinity,
-                    maxHeight: .infinity,
-                    alignment: .topLeading
-                )
-            ZStack {
-                Text("zstack item 1")
-                    .padding()
-                    .background(Color.green)
-                    .opacity(0.8)
-                Text("zstack item 2")
-                    .padding()
-                    .background(Color.green)
-                    .offset(x:80, y: -400)
+            Text("hello world")
+                .fontWeight(.medium)
+            SecureField("enter password", text: $password)
+                .padding()
+            
+            Text("pass word enterd:\(password)")
+                .italic()
+            
+            TextField("enter some text", text: $someText)
+            
+            Text(":\(someText)")
+                .font(.largeTitle)
+                .underline()
+            Text("Changing text color and maker it bold")
+                .foregroundColor( Color.blue)
+                .bold()
+            
+            Text("Use kerning to change space between lines of text")
+                .kerning(7)
+            
+            Text("Changing baseline offset").baselineOffset(100)
+            
+            Text("Striekthroth").strikethrough()
+            
+            Text("This is a multiline text implemented in swiftui ,the trailing modifier was added to text . this text also implements multiple modifiers")
+                .background(Color.yellow)
+                .multilineTextAlignment(.trailing)
+                .lineSpacing(10)
+            
+            // test count item
+            
+//            Text("count 1")
+//            Text("count 1")
+//            Text("count 1")
+            
+        
                 
-            }
-        }.background(Color.blue)
+            
+        }
     }
 }
 
